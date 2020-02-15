@@ -1,0 +1,49 @@
+﻿@model ClienteCore.Models.Cliente
+
+@{
+    ViewData["Title"] = "Alterar";
+}
+
+<h2>Alterar</h2>
+
+<h4>Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="IdCliente" class="form-control hidden" />
+            <div class="form-group">
+                <label asp-for="NomeCliente" class="control-label">Nome</label>
+                <input asp-for="NomeCliente" class="form-control" />
+                <span asp-validation-for="NomeCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailCliente" class="control-label">E-mail</label>
+                <input asp-for="EmailCliente" class="form-control" />
+                <span asp-validation-for="EmailCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CpfCliente" class="control-label">CPF</label>
+                <input asp-for="CpfCliente" class="form-control" />
+                <span asp-validation-for="CpfCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtNascCliente" class="control-label">Data de Nascimento</label>
+                <input asp-for="DtNascCliente" class="form-control" />
+                <span asp-validation-for="DtNascCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Alterar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retornar para a Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

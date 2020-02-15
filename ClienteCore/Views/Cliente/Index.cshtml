@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ClienteCore.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Consulta";
+}
+
+<h2>Consulta</h2>
+
+<p>
+    <a asp-action="Create">Incluir</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Cliente
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                CPF
+            </th>
+            <th class="text-center">
+                Data de Nascimento
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CpfCliente)
+            </td>
+            <td class="text-center">
+                @Convert.ToDateTime(item.DtNascCliente).ToString("dd/MM/yyyy")
+            </td>
+            <td class="text-center">
+                @Html.ActionLink("Alterar", "Edit", new { id=item.IdCliente }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.IdCliente }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.IdCliente })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

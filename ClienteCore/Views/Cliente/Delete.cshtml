@@ -1,0 +1,44 @@
+﻿@model ClienteCore.Models.Cliente
+
+@{
+    ViewData["Title"] = "Excluir";
+}
+
+<h2>Excluir</h2>
+
+<h3>Deseja excluir este cliente ?</h3>
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeCliente)
+        </dd>
+        <dt>
+            E-mail:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailCliente)
+        </dd>
+        <dt>
+            CPF:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CpfCliente)
+        </dd>
+        <dt>
+            Data de Nascimento:
+        </dt>
+        <dd>
+            @Convert.ToDateTime(Model.DtNascCliente).ToString("dd/MM/yyyy")
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Excluir" class="btn btn-default" /> |
+        <a asp-action="Index">Retornar para a Lista</a>
+    </form>
+</div>
