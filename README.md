@@ -1,4 +1,4 @@
-# ClienteWebForms
+# ClienteCore
 
 Para criação do banco de dados:
 
